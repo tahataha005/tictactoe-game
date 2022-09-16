@@ -13,30 +13,37 @@ window.onload = () => {
         [3,4,5],
         [6,7,8],
     ]
-    let Xturn = true
+    let Rturn = true
     let turns = 0
 
+    // Win Function <<Not working>> Explanation ==>
     const resultcheck = () => {
+        
+        // I tried to loop on all winning combinations
         for(let i of win){
-            let [inside1,inside2,inside3] = [
-                slot[i[0]].innerText,
-                slot[i[0]].innerText,
-                slot[i[0]].innerText                
-            ]
-        }
-        if(inside1 == inside2 && inside2 == inside3){
-            result.innerHTML = "<p>Game Over</p>"
-        }
+
+            // assigning red/yellow/null to 3 indexes of i (winning senarios)
+            let inside1 = slots[i[0]].innerHTML
+            let inside2 = slots[i[1]].innerHTML
+            let inside3 = slots[i[2]].innerHTML
+            console.log(inside1,inside2,inside3)
+        // checked if any is null(not placed yet)
+        if(inside1 != null && inside2 != null && inside3 != null){
+            // if not null then check whether the 3 indeces are the same(either all red or all yellow)
+            if(inside1 == inside2 && inside2 == inside3){
+                // if yes ==> state the game has ended
+                result.innerHTML = "<p>Game Over</p>"
+            }}}
     }
 
     slots.forEach((inside) => {
         inside.addEventListener("click", () => {
-            if (Xturn){
-                Xturn = false
+            if (Rturn){
+                Rturn = false
                 inside.innerHTML = "<img src='/assets/red.png'></img>"
                 inside.disabled = true
             } else{
-                Xturn = true
+                Rturn = true
                 inside.innerHTML = "<img src='/assets/yellow.png'></img>"
                 inside.disabled = true
             }
@@ -46,17 +53,20 @@ window.onload = () => {
             if (turns == 9){
             result.innerHTML = "<p>Draw</p>"
         }
-            resultcheck
+        resultcheck()
         })
         
         
     })
+
+// 
 
     resetBtn.addEventListener("click", () => {
         slots.forEach((inside) => {
             inside.innerHTML = ""
             inside.disabled = false
             turns = 0
+            result.innerHTML = "<p>In Progress...</p>"
         })
     })
     }
