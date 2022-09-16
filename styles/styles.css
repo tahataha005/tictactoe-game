@@ -1,6 +1,5 @@
 body{
     display: flex;
-    height: 100vw;
     background: linear-gradient(rgb(0, 238, 255),rgb(5, 29, 107));
     align-items: center;
     justify-content: center;
@@ -13,8 +12,7 @@ body{
     align-items: center;
     justify-content: center;
     width: 70vw;
-    height: 70vw;
-    padding:25px;
+    padding: 25px;
     background-color: rgba(255, 255, 255,50%);
     border-radius: 15px;
 }
@@ -38,27 +36,39 @@ body{
 }
 
 .game{
+    background-image: url("/assets/board.png");
+    background-position: center;
+    background-size: cover;
     align-content: center;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
     align-self: center;
     display: flex;
     flex-wrap: wrap;
     width: 70%;
     height: 50vw;
-
 }
 
 .slot{
     margin: 0;
-    width: 25%;
-    height: 25%;
-    background-color: white;
+    width: 14vw;
+    height: 14vw;
     border: 0;
     border-radius: 10px;
     font-size: 8vw;
     font-weight: bold;
     color: turquoise;
+}
+
+.slot >img{
+    object-fit: cover;
+    width: 80%;
+    height: 71%;
+}
+
+.result{
+    font-size: 20px;
+    color: rgb(5, 29, 107);
 }
 
 .reset{

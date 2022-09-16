@@ -1,6 +1,7 @@
 window.onload = () => {
     const slots = document.querySelectorAll(".slot")
     const resetBtn = document.getElementById("reset")
+    const result = document.getElementById("result")
     console.log(slots)
     const win = [
         [0,1,2],
@@ -15,17 +16,39 @@ window.onload = () => {
     let Xturn = true
     let turns = 0
 
+    const resultcheck = () => {
+        for(let i of win){
+            let [inside1,inside2,inside3] = [
+                slot[i[0]].innerText,
+                slot[i[0]].innerText,
+                slot[i[0]].innerText                
+            ]
+        }
+        if(inside1 == inside2 && inside2 == inside3){
+            result.innerHTML = "<p>Game Over</p>"
+        }
+    }
+
     slots.forEach((inside) => {
         inside.addEventListener("click", () => {
             if (Xturn){
                 Xturn = false
-                inside.innerHTML = "X"
+                inside.innerHTML = "<img src='/assets/red.png'></img>"
                 inside.disabled = true
             } else{
                 Xturn = true
-                inside.innerHTML = "O"
+                inside.innerHTML = "<img src='/assets/yellow.png'></img>"
                 inside.disabled = true
             }
+
+            turns++
+
+            if (turns == 9){
+            result.innerHTML = "<p>Draw</p>"
+        }
+            resultcheck
         })
+        
+        
     })
     }
