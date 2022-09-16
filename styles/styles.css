@@ -6,3 +6,45 @@ body{
     justify-content: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 70vw;
+    height: 70vw;
+    padding:25px;
+    background-color: rgba(255, 255, 255,50%);
+    border-radius: 15px;
+}
+
+.container > h1{
+    font-size: 40px;
+    margin: 10px;
+}
+
+.score{
+    align-self: start;
+    font-size: 20px;
+}
+
+.game{
+    gap: 15px;
+    align-self: center;
+    grid-area: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    height: 50vw;
+
+}
+
+.slot{
+    width: 25%;
+    height: 25%;
+    background-color: white;
+    border: 0;
+    border-radius: 10px;
+
+}
