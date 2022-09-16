@@ -51,4 +51,12 @@ window.onload = () => {
         
         
     })
+
+    resetBtn.addEventListener("click", () => {
+        slots.forEach((inside) => {
+            inside.innerHTML = ""
+            inside.disabled = false
+            turns = 0
+        })
+    })
     }
